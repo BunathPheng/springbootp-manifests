@@ -1,0 +1,24 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springbootp
+  labels:
+    app: springbootp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springbootp
+  template:
+    metadata:
+      labels:
+        app: springbootp
+    spec:
+      containers:
+        - name: springbootp
+          image: docker.io/phengbunath/springbootp:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
